@@ -1,4 +1,12 @@
 import React from 'react'; 
+import './MyForm.css'; 
+import t from 'tcomb-form';
+
+const Form = t.form.Form; 
+
+const query = t.struct({
+	name : t.String
+});
 
 
 class MyForm extends React.Component{
@@ -24,10 +32,10 @@ class MyForm extends React.Component{
 	
 	 
 	submit(){
-		var name = document.getElementById('Name').value; 
-		var location = document.getElementById('State').value; 
+		var name = this.refs.form.getValue().name; 
+		//console.log(name); 
 		name = this.makeReady(name); 
-		console.log(name); 
+		
 		fetch("https://api.data.gov/ed/collegescorecard/v1/schools.json?school.name="+ 
 			name+"&api_key=WFRRaro1e4xNtfUM486ErRfVrb9JOIX8ek7C2xyp")
 			.then(res => res.json())
@@ -38,9 +46,11 @@ class MyForm extends React.Component{
 	render(){
 		return(
 			<div className="formContainer">
-				 <span className="inputField">School Name: <input type="text" id="Name" /> </span> 
-				 <span className="inputField">State: <input type="text" id="State" /> </span> 
-				 <button onClick={this.submit} > Search </button> 
+				 <h1> Search for school</h1> 
+				 <Form ref="form" type={query} /> 
+				 
+				 <button onClick={this.submit} > Search </button> <br/>
+				 
 			</div>
 		); 
 	}
