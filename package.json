@@ -1,8 +1,10 @@
 {
+  "homepage": "http://raymondcswsu.github.io/finalProject",
   "name": "finalProject",
   "version": "0.1.0",
   "private": true,
   "devDependencies": {
+    "gh-pages": "^0.12.0",
     "react-scripts": "0.9.5"
   },
   "dependencies": {
@@ -12,6 +14,7 @@
     "tcomb-form": "^0.9.16"
   },
   "scripts": {
+    "deploy": "npm run build&&gh-pages -d build", 
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",

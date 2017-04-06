@@ -23,7 +23,7 @@ class App extends Component {
 	
 	changeResults(results)
 	{
-		console.log(results); 
+		//console.log(results); 
 		var tempSchoolName;
 		var tempInStateTuit;
 		var tempOutStateTuit;
@@ -75,7 +75,7 @@ class App extends Component {
 		this.setState({"results" : []}); 
 		var results = toDisplay.results;
 		
-		console.log(results); 
+		//console.log(results); 
 		var results = results.map(this.changeResults);
 		//console.log(results); 
 		this.setState({"results" : results}); 
